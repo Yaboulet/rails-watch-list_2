@@ -1,0 +1,55 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="https://img.freepik.com/vecteurs-libre/tasse-graphique-illustration-pop-corn_53876-8059.jpg?w=740&t=st=1680022945~exp=1680023545~hmac=716e82f39a46a181c952d41bb4f6b5cd863fa0b746366aec7fb85270502ba303" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/lists">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/lists/new">New List</a>
+          </li>
+          <li class="nav-item dropdown">
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+            </div>
+          </li>
+          <!--li class="nav-item"-->
+          <!--/li-->
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://dirprodformations.fr/wp-content/uploads/2017/08/salle-cinema-3-1184x888.jpg);">
+  <div class="container bannertext">
+    <h1>Tired of not keeping track of great movies ? Here's the solution !</h1>
+  </div>
+</div>
+
+<%= link_to "Create a list", new_list_path, class: "btn btn-gradient addlist" %>
+
+<div class="cards">
+  <% @lists.each do |list| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <%= link_to list.name, list_path(list) %>
+    </div>
+  <% end %>
+</div>
+
+<ul>
+<li><% @lists.each do |list| %>
+<%= link_to list.name, list_path(list) %></li>
+<% end %>
+</ul>
